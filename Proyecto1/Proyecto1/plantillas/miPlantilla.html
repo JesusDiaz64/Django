@@ -3,15 +3,27 @@
         <h1 style = "color: blue;">
             Hola Soy Jesus Diaz, este es una plantilla nueva.
         </h1>
-        <p>El nombre del profesor es: {{nombre_persona}}</p>
-        <p>El apellido del profesor es: {{apellido_persona}}</p>
+        <p>El nombre del profesor es: {{nombre_persona.upper}}</p>
+        <p>El apellido del profesor es: {{apellido_persona.upper}}</p>
         <p>Dame la hora: {{hora.day}} / {{hora.month}} / {{hora.year}}</p>
 
         <hr>
+        <p><h1>Temas del curso: </h1></p>
+        <!--Bucle FOR-->
+        <p>
+            <ul>
+                <!--Condicion if else-->
+            {% if temas %}
+                {% for elTema in temas %}
 
-        <p>Agenda Telefonica</p>
-        <p>Nombre: {{Nombre_agendado}}</p>
-        <p>Apellidos: {{Apellido_agendado}}</p>
-        <p>Telefono: {{Telefono_agendado}}</p>
+                    <li>{{elTema}}</li>
+
+                {% endfor %}
+            {% else %}
+                <p>No hay elementos que mostrar</p>
+            {% endif %}
+            </ul>
+        </p>
+        <p>{{temas.1}}</p>
     </body>
 </html>

@@ -21,6 +21,8 @@ def saludo(request):
     
     # apellido = "Diaz"
     
+    temasCurso = []
+    
     ahora = datetime.datetime.now()
     
     doc_externo = open("C:/Users/jdiaz/OneDrive/Documentos/Programacion/Django/Proyecto1/Proyecto1/plantillas/miPlantilla.html")
@@ -29,7 +31,7 @@ def saludo(request):
     
     doc_externo.close()
     
-    ctx = Context({"nombre_persona" : p1.nombre, "apellido_persona" : p1.apellido, "hora" : ahora})
+    ctx = Context({"nombre_persona" : p1.nombre, "apellido_persona" : p1.apellido, "hora" : ahora, "temas": temasCurso})
     
     documento = plt.render(ctx)
     
