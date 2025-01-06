@@ -1,6 +1,8 @@
 from django.http import HttpResponse
 import datetime
 from django.template import Template, Context
+from django.template.loader import get_template
+from django.shortcuts import render
 
 class Persona(object):
     def __init__(self, nombre, apellido):
@@ -14,6 +16,15 @@ class Agenda_Persona(object):
         self.apellidos = apellidos
         self.telefono = telefono
 
+class Calculadora(object):
+    def __init__(self, num1, num2):
+        self.num1 = num1
+        self.num2 = num2
+        self.suma = num1 + num2
+        self.resta = num1 - num2
+        self.multiplicacion = num1 * num2
+        self.division = num1 / num2
+
 def saludo(request):
     p1 = Persona("Jesus David", "Diaz Cabrales")
     
@@ -21,21 +32,18 @@ def saludo(request):
     
     # apellido = "Diaz"
     
-    temasCurso = []
+    temasCurso = ["Matematicas", "Ingles", "Frances", "Programacion"]
     
     ahora = datetime.datetime.now()
     
-    doc_externo = open("C:/Users/jdiaz/OneDrive/Documentos/Programacion/Django/Proyecto1/Proyecto1/plantillas/miPlantilla.html")
+    #Ver settings...
+    #plt = get_template("miplantilla.html")
     
-    plt = Template(doc_externo.read())
+    #ctx = Context({"nombre_persona" : p1.nombre, "apellido_persona" : p1.apellido, "hora" : ahora, "temas": temasCurso})
     
-    doc_externo.close()
+    #documento = plt.render({"nombre_persona" : p1.nombre, "apellido_persona" : p1.apellido, "hora" : ahora, "temas": temasCurso})
     
-    ctx = Context({"nombre_persona" : p1.nombre, "apellido_persona" : p1.apellido, "hora" : ahora, "temas": temasCurso})
-    
-    documento = plt.render(ctx)
-    
-    return HttpResponse(documento)
+    return render(request, "miplantilla.html", {"nombre_persona" : p1.nombre, "apellido_persona" : p1.apellido, "hora" : ahora, "temas": temasCurso})
 
 def materias(request):
     return HttpResponse("""Estas son las materias reprobadas
@@ -72,14 +80,17 @@ def calculaEdad(request, agno):
 def agenda_telefono(request):
     agenda1 = Agenda_Persona("Edgar Yoel", "Diaz Cabrales", 6644714104)
     
-    doc_externo = open("C:/Users/jdiaz/OneDrive/Documentos/Programacion/Django/Proyecto1/Proyecto1/plantillas/plantillaAgenda.html")
+    plt = get_template("plantillaAgenda.html")
     
-    plt = Template(doc_externo.read())
+    documento = plt.render({"Nombre_agendado": agenda1.nombre, "Apellido_agendado": agenda1.apellidos, "Telefono_agendado": agenda1.telefono})
     
-    doc_externo.close()
+    return HttpResponse(documento)
+
+def calculadora(request):
+    Calcular = Calculadora(45, 5)
     
-    ctx = Context({"Nombre_agendado": agenda1.nombre, "Apellido_agendado": agenda1.apellidos, "Telefono_agendado": agenda1.telefono})
-    
-    documento = plt.render(ctx)
+    plt = get_template("calPlantilla.html")
+        
+    documento = plt.render({"Primer_numero": Calcular.num1, "Segundo_numero": Calcular.num2, "Suma": Calcular.suma, "Resta": Calcular.resta, "Multiplicacion": Calcular.multiplicacion, "Division": Calcular.division})
     
     return HttpResponse(documento)
