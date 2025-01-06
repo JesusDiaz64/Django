@@ -1,0 +1,26 @@
+<!--Esto me sirve para crear encabezados y usarlos en todas las pestanas
+de pagina web, plantilla padre-->
+
+<html>
+    <head>
+        <title>
+            {% block title %}Proyecto1{% endblock %}
+        </title>
+    </head>
+
+    <body>
+        <h1>Titulo principal</h1>
+
+        {% include "superior/barra.html" %}
+
+        <h3>Cursos programación</h3>
+
+        {% block content %} 
+        
+
+        
+        {% endblock %}
+
+        <p>Cursos gratuitos</p>
+    </body>
+</html>

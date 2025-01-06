@@ -1,6 +1,5 @@
 from django.http import HttpResponse
 import datetime
-from django.template import Template, Context
 from django.template.loader import get_template
 from django.shortcuts import render
 
@@ -94,3 +93,13 @@ def calculadora(request):
     documento = plt.render({"Primer_numero": Calcular.num1, "Segundo_numero": Calcular.num2, "Suma": Calcular.suma, "Resta": Calcular.resta, "Multiplicacion": Calcular.multiplicacion, "Division": Calcular.division})
     
     return HttpResponse(documento)
+
+def cursoC(request):
+    ahora = datetime.datetime.now()
+    
+    return render(request, "cursoC.html", {"dameFecha": ahora})
+
+def cursoCss(request):
+    ahora = datetime.datetime.now()
+    
+    return render(request, "CursosCss.html", {"dameFecha": ahora})
