@@ -1,0 +1,16 @@
+Notas para después...
+
+python -m django startproject TiendaOnline
+
+python .\manage.py startapp gestionPedidos
+
+ python .\manage.py makemigrations         
+
+ python .\manage.py sqlmigrate gestionPedidos 0001
+
+ python .\manage.py migrate
+
+ SQL Consola
+ #art3 = Articulos.objectos.create(nombre = 'taladro', seccion = 'ferreteria', precio = 65)
+
+Instalar en Django psycopg2 en el proyecto creado
