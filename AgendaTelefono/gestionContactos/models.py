@@ -5,7 +5,7 @@ from django.db import models
 class Usuario(models.Model):
     nombre = models.CharField(max_length=40)
     Apellido = models.CharField(max_length=60)
-    email = models.EmailField()
+    email = models.EmailField(blank = True, null = True)
     telefono = models.CharField(max_length=10)
     domicilio = models.CharField(max_length=80)
     

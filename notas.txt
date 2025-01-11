@@ -14,3 +14,6 @@ python .\manage.py startapp gestionPedidos
  #art3 = Articulos.objectos.create(nombre = 'taladro', seccion = 'ferreteria', precio = 65)
 
 Instalar en Django psycopg2 en el proyecto creado
+
+Crear usuario:
+python .\manage.py createsuperuser

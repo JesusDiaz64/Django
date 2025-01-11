@@ -14,3 +14,5 @@ from django.core.asgi import get_asgi_application
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TiendaOnline.settings')
 
 application = get_asgi_application()
+
+#........... NO SE HA MOVIDO NADA ESTA PARTE, POR AHORA ESTA EN INVESTIGACIÓN.

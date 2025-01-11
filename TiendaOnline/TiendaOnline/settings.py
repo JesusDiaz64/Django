@@ -1,3 +1,6 @@
+
+#......... AQUÍ SE CONFIGURA EL SSITEMA QUÉ UTILIZAREMOS COMO POR EJEMPLO UNA BASE DE DATOS.
+
 """
 Django settings for TiendaOnline project.
 
@@ -37,7 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'gestionPedidos', # Aplicacion creada
+    'gestionPedidos', # Aplicación creada.
 ]
 
 MIDDLEWARE = [
@@ -52,6 +55,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'TiendaOnline.urls'
 
+# PLANTILLA PARA CREAR FRONTEND HTML, CSS, JAVASCRIPT
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -76,8 +80,8 @@ WSGI_APPLICATION = 'TiendaOnline.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'articulosclientes',
+        'ENGINE': 'django.db.backends.postgresql', # SELECCIONA QUE TIPO DE BASE DE DATOS SE UTILIZARÁ.
+        'NAME': 'articulosclientes', # NOMBRE DE LA BASE DE DATOS QUE SE MOSTRARÁ EN POSTGRESQL O CUALQUIER OTRO.
         'USER' : 'postgres',
         'PASSWORD' : '12345',
         'HOST' : 'localhost',
@@ -126,3 +130,5 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+#............. MUCHA UTILIZACIÓN EN ESTA PARTE.
