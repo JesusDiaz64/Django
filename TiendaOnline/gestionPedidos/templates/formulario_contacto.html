@@ -1,0 +1,20 @@
+<html>
+    <body>
+
+        <h1>
+            {% if form.errors %}
+            <p style = "color: red;"> Por favor revisar este campo </p>
+            {% endif %}
+
+            <form action = "" method = "POST"> {% csrf_token %}
+
+                <table>
+                    {{ form.as_table }}
+
+                </table>
+
+                <input type = "submit" value = "Enviar">
+        </h1>
+
+    </body>
+</html>
